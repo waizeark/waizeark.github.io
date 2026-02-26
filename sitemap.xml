@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://waizeark.github.io/json-tools/</loc>
+    <loc>https://waizeark.github.io/</loc>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://waizeark.github.io/json-tools/json-formatter.html</loc>
+    <loc>https://waizeark.github.io/formatter/index.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://waizeark.github.io/json-tools/json-to-csharp.html</loc>
+    <loc>https://waizeark.github.io/csharp/index.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://waizeark.github.io/json-tools/json-to-typescript.html</loc>
+    <loc>https://waizeark.github.io/typescript/index.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://waizeark.github.io/json-tools/base64/</loc>
+    <loc>https://waizeark.github.io/base64/index.html</loc>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://waizeark.github.io/json-tools/uuid/</loc>
+    <loc>https://waizeark.github.io/uuid/index.html</loc>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://waizeark.github.io/json-tools/privacy.html</loc>
+    <loc>https://waizeark.github.io/privacy.html</loc>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://waizeark.github.io/json-tools/contact.html</loc>
+    <loc>https://waizeark.github.io/contact.html</loc>
     <priority>0.5</priority>
   </url>
 
