@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Base64エンコード・デコードツール（無料・ブラウザ完結）</title>
+<meta name="description" content="無料で使えるBase64エンコード・デコードツール。インストール不要・ブラウザだけで安全に変換できます。開発者向けオンラインツール。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+textarea {
+  width: 100%;
+  height: 180px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+}
+nav a {
+  margin-right: 10px;
+}
+</style>
+</head>
+<body>
 
+<nav>
+<a href="../">トップ</a>
+<a href="../formatter/">JSON整形</a>
+<a href="../csharp/">JSON→C#</a>
+<a href="../typescript/">JSON→TypeScript</a>
+<a href="../base64/">Base64</a>
+<a href="../uuid/">UUID</a>
+</nav>
+
+<h1>Base64エンコード・デコードツール</h1>
+
+<textarea id="input" placeholder="ここに文字列を入力"></textarea>
+
+<br>
+<button onclick="encode()">エンコード</button>
+<button onclick="decode()">デコード</button>
+
+<textarea id="output" placeholder="変換結果がここに表示されます"></textarea>
+
+<h2>このツールについて</h2>
+<p>
+このBase64ツールは、文字列をBase64形式にエンコード、またはBase64文字列を元の文字列にデコードできる無料オンラインツールです。
+Web開発やAPI通信、画像データ変換などでよく使用されるBase64変換を、インストール不要でブラウザ上だけで実行できます。
+入力データは外部サーバーへ送信されません。すべてブラウザ内で処理されるため安全に利用できます。
+エンジニアやプログラマーの日常業務を効率化するシンプルな変換ツールです。
+</p>
+
+<hr>
+
+<footer>
+<a href="../privacy.html">プライバシーポリシー</a> |
+<a href="../contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function encode() {
+  try {
+    const input = document.getElementById("input").value;
+    document.getElementById("output").value =
+      btoa(unescape(encodeURIComponent(input)));
+  } catch (e) {
+    alert("エンコードできませんでした");
+  }
+}
+
+function decode() {
+  try {
+    const input = document.getElementById("input").value;
+    document.getElementById("output").value =
+      decodeURIComponent(escape(atob(input)));
+  } catch (e) {
+    alert("デコードできませんでした");
+  }
+}
+</script>
+
+</body>
+</html>
