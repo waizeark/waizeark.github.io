@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>UUID生成ツール（無料・ブラウザ完結）</title>
+<meta name="description" content="無料で使えるUUID（v4）生成ツール。インストール不要・ブラウザのみで安全にランダムUUIDを生成できます。開発者向けオンラインツール。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+}
+nav a {
+  margin-right: 10px;
+}
+</style>
+</head>
+<body>
 
+<nav>
+<a href="../">トップ</a>
+<a href="../formatter/">JSON整形</a>
+<a href="../csharp/">JSON→C#</a>
+<a href="../typescript/">JSON→TypeScript</a>
+<a href="../base64/">Base64</a>
+<a href="./">UUID</a>
+</nav>
+
+<h1>UUID生成ツール（v4）</h1>
+
+<button onclick="generateUUID()">UUIDを生成</button>
+<button onclick="copyUUID()">コピー</button>
+
+<textarea id="output" placeholder="ここにUUIDが表示されます" readonly></textarea>
+
+<h2>このツールについて</h2>
+<p>
+このUUID生成ツールは、ランダムなUUID（バージョン4）をブラウザ上で生成できる無料オンラインツールです。
+データベースの主キー作成やAPI開発、トークン生成などに利用できます。
+すべてブラウザ内で処理されるため、外部サーバーへデータは送信されません。
+インストール不要で、すぐに安全に利用できる開発者向けシンプルツールです。
+</p>
+<p>
+UUID（Universally Unique Identifier）は、広く用いられる一意識別子（ID）です。このツールではブラウザ上だけで安全にUUIDを生成できます。UUIDv4はランダム生成方式で、衝突の可能性が極めて低く、データベースの主キー、トークン、セッションID、ファイル識別子など幅広い用途で利用されます。
+</p>
+<p>
+UUIDは世界中のどこでも同じ確率で一意になるように設計されており、複数端末や分散システムで重複しにくい特徴があります。このツールは外部サーバーにデータを送信せず、ローカルだけで生成するため安全性も高く、環境構築不要で誰でもすぐに使えます。エンジニアの日常作業を効率化する便利なオンラインツールです。
+</p>
+<hr>
+
+<footer>
+<a href="../privacy.html">プライバシーポリシー</a> |
+<a href="../contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function generateUUID() {
+  const uuid = crypto.randomUUID();
+  document.getElementById("output").value = uuid;
+}
+
+function copyUUID() {
+  const textarea = document.getElementById("output");
+  textarea.select();
+  document.execCommand("copy");
+  alert("コピーしました");
+}
+</script>
+
+</body>
+</html>
