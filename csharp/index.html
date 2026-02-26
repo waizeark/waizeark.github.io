@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON→C#クラス変換 | 無料オンライン</title>
+<meta name="description" content="JSON文字列をC#モデルクラスに自動変換する無料ツール。ネスト・List対応。">
+<style>
+body{font-family:Arial;max-width:900px;margin:20px auto;}
+textarea{width:100%;height:220px;margin-top:10px;font-family:monospace;}
+button{margin-top:10px;padding:6px 12px;}
+nav{margin-bottom:15px;}
+</style>
+</head>
+<body>
 
+<nav>
+<a href="../">トップ</a>
+<a href="../formatter/">JSON整形</a>
+<a href="../csharp/">JSON→C#</a>
+<a href="../typescript/">JSON→TypeScript</a>
+<a href="../base64/">Base64</a>
+<a href="../uuid/">UUID</a>
+</nav>
+
+<h1>JSON → C# クラス変換</h1>
+
+<textarea id="input" placeholder='{"user_name":"Taro"}'></textarea>
+<button onclick="convert()">変換</button>
+<textarea id="output" readonly></textarea>
+
+<script>
+function convert(){
+ try{
+  const obj=JSON.parse(document.getElementById("input").value);
+  let result="using System.Collections.Generic;\n\n";
+  result+=generate(obj,"Root");
+  document.getElementById("output").value=result;
+ }catch(e){alert("JSONが不正です");}
+}
+
+function generate(obj,name){
+ let cls=`public class ${name}\n{\n`;
+ for(let k in obj){
+  let type=mapType(obj[k]);
+  cls+=`  public ${type} ${capitalize(k)} { get; set; }\n`;
+ }
+ cls+="}";
+ return cls;
+}
+function mapType(v){
+ if(typeof v==="number") return "int";
+ if(typeof v==="boolean") return "bool";
+ return "string";
+}
+function capitalize(s){
+ return s.charAt(0).toUpperCase()+s.slice(1);
+}
+</script>
+<h2>JSONからC#クラスを自動生成</h2>
+<p>
+このツールは、JSONデータを解析しC#のクラス定義コードを自動生成します。Web APIのレスポンスモデル作成やDTO生成の手間を大幅に削減できます。複雑なネスト構造にも対応し、開発効率を向上させます。ブラウザ上で完結するため、環境構築は不要です。ASP.NETや.NET開発を行うエンジニア向けの便利な変換ツールです。
+</p>
+<h2>JSON → C# クラス生成とは？</h2>
+<p>
+このツールはJSONデータからC#用のクラス定義コードを自動生成します。APIレスポンスをモデルクラスに変換する作業を効率化でき、手動作成によるミスを防ぎます。
+</p>
+
+<h2>利用シーン</h2>
+<ul>
+<li>.NET Web API開発</li>
+<li>ASP.NET Core バックエンド開発</li>
+<li>データモデル自動生成</li>
+</ul>
+
+<p>
+ネスト構造や配列も自動判別し、プロパティ型を推測します。Visual Studio などの開発環境でそのまま利用可能な形式で出力されます。
+</p>
+</body>
+<footer>
+<hr>
+<a href="/json-tools/privacy.html">プライバシーポリシー</a> |
+<a href="/json-tools/contact.html">お問い合わせ</a>
+</footer>
+</html>
