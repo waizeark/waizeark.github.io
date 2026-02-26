@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON整形ツール | JSON Tools</title>
+<meta name="description" content="JSONを見やすく整形・圧縮できる無料オンラインツール。エラー表示にも対応。">
+<link rel="canonical" href="https://waizeark.github.io/json-tools/formatter/">
+</head>
+
+<body>
+<nav>
+<a href="../">トップ</a>
+<a href="../formatter/">JSON整形</a>
+<a href="../csharp/">JSON→C#</a>
+<a href="../typescript/">JSON→TypeScript</a>
+<a href="../base64/">Base64</a>
+<a href="../uuid/">UUID</a>
+</nav>
+<h1>JSON整形ツール</h1>
+<p>JSONを貼り付けるだけで整形・圧縮できます。</p>
+<h2>JSON整形ツールとは？</h2>
+<p>
+JSON整形ツールは、読みづらいJSONデータを見やすい形式に自動で整形するオンラインツールです。インデントや改行を適切に調整することで、構造が一目で理解できるようになります。APIレスポンス確認やログ解析、デバッグ作業で特に役立ちます。
+</p>
+  
+<textarea id="input" rows="10" style="width:100%"></textarea>
+<br><br>
+<button onclick="formatJSON()">整形</button>
+<button onclick="minifyJSON()">圧縮</button>
+
+<script>
+function formatJSON(){
+  try{
+    const obj = JSON.parse(document.getElementById("input").value);
+    document.getElementById("input").value = JSON.stringify(obj,null,2);
+  }catch(e){
+    alert("JSONエラー");
+  }
+}
+function minifyJSON(){
+  try{
+    const obj = JSON.parse(document.getElementById("input").value);
+    document.getElementById("input").value = JSON.stringify(obj);
+  }catch(e){
+    alert("JSONエラー");
+  }
+}
+</script>
+
+<h2>このツールについて</h2>
+<p>
+このJSON整形ツールは、読みづらいJSONデータを見やすく整理する無料オンラインツールです。複雑なJSON構造を整形することでAPIレスポンスやログデータの確認がしやすくなります。圧縮（minify）機能もあり、データ送信前の最適化にも使えます。すべてブラウザで動作し、外部にデータを送信しません。エンジニアやプログラマーの日常的な開発で役立つシンプルなツールです。
+</p>
+
+<p><a href="../">← トップへ戻る</a></p>
+</body>
+</html>
