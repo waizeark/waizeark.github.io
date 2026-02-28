@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://waizeark.github.io/json-tools/sitemap.xml
+Sitemap: https://waizeark.github.io/sitemap.txt
